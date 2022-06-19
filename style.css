@@ -2,7 +2,20 @@ body {
     text-align: center;
     font-family: sans-serif;
     font-size: 0.8rem;
-    height: 100vh;
-    /* background: linear-gradient(to top left, #2e619c, #c0ceee); */
+    /* height: 100vh; */
+    background: #334d50;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #cbcaa5, #334d50);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #cbcaa5, #334d50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color: rgb(34, 31, 31);
   }
+
+.countries{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
   

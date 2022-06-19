@@ -2,24 +2,45 @@
 //*                     FLAG-APP
 //*=========================================================
 
+const input = document.querySelector('.inp');
+const button = document.querySelector('.btn');
+const error1 = document.querySelector('.error');
+button.addEventListener("click" ,() => {
+  fetchCountry(input.value);
+})
+
+input.addEventListener("keydown", (e)=> {
+  if(e.keyCode === 13){
+    fetchCountry(input.value);
+    
+  }
+})
+window.addEventListener("load", () => {
+  input.focus()
+})
+
 const fetchCountry = async (name) => {
     const url = `https://restcountries.com/v3.1/name/${name}`;
     try {
       const res = await fetch(url);
       if (!res.ok) {
-        renderError(`Something went wrong:${res.status}`);
+        renderError(`Something went wrong:${res.status}`)
+        setTimeout(() => {
+          error1.textContent = "";
+        }, 3000);
         throw new Error();
       }
       const data = await res.json();
       renderCountry(data[0]);
+      input.value = "";
     } catch (error) {
       console.log(error);
     }
   };
   
   const renderError = (err) => {
-    const countriesDiv = document.querySelector('.countries');
-    countriesDiv.innerHTML = `
+   
+    error1.innerHTML = `
        <h1 class="text-danger">${err}</h1>
        <img src="./img/404.png" alt="" />
       `;
@@ -68,8 +89,8 @@ const fetchCountry = async (name) => {
     `;
   };
   
-  fetchCountry('turkey');
-  fetchCountry('usa');
-  fetchCountry('belgium');
-  fetchCountry('south africa');
+  // fetchCountry('turkey');
+  // fetchCountry('usa');
+  // fetchCountry('belgium');
+  // fetchCountry('south africa');
   
