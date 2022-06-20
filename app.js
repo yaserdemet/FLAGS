@@ -43,7 +43,10 @@ const fetchCountry = async (name) => {
     error1.innerHTML = `
        <h1 class="text-danger">${err}</h1>
        <img src="./img/404.png" alt="" />
+       
       `;
+      input.value = "";
+      input.focus()
   };
   
   const renderCountry = (country) => {
