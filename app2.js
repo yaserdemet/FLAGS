@@ -28,25 +28,26 @@ fetchCountry1();
 
 select1.addEventListener("click" ,(e) => {
     fetchCountry(e.target.value);
+    
 }
   )
   
-  input.addEventListener("keydown", (e)=> {
-    if(e.keyCode === 13){
-      fetchCountry(input.value);
+  // input.addEventListener("keydown", (e)=> {
+  //   if(e.keyCode === 13){
+  //     fetchCountry(input.value);
       
-    }
-  })
-  window.addEventListener("load", () => {
-    input.focus()
-  })
+  //   }
+  // })
+  // window.addEventListener("load", () => {
+  //   input.focus()
+  // })
   
   const fetchCountry = async (name) => {
       const url = `https://restcountries.com/v3.1/name/${name}`;
       try {
         const res = await fetch(url);
         if (!res.ok) {
-          renderError(`Something went wrong:${res.status}`)
+          // renderError(`Something went wrong:${res.status}`)
           setTimeout(() => {
             error1.textContent = "";
           }, 3000);
@@ -54,7 +55,8 @@ select1.addEventListener("click" ,(e) => {
         }
         const data = await res.json();
         renderCountry(data[0]);
-        input.value = "";
+        
+        select1.value = "";
       } catch (error) {
         console.log(error);
       }

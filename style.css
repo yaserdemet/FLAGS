@@ -24,4 +24,12 @@ background: linear-gradient(to right, #cbcaa5, #334d50); /* W3C, IE 10+/ Edge, F
   position: fixed;
   left: 0px;
 }
+/* .container {
+  width: 40%;
+} */
+.form-select {
+  width: 40%;
+ margin: auto;
+
+}
   
